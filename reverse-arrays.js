@@ -1,9 +1,20 @@
 function reverseArray(arr) {
-  // Add code.
+  let reversedArr = [];
+  for (let i of arr){
+    reversedArr.unshift(i);
+  }
+  return reversedArr;
 }
 
 function reverseArrayInPlace(arr) {
-  // Add code.
+  let arrLength = arr.length;
+  let jumpIndex = 0;
+  for (let i = 0; i < arrLength; i++) {
+    arr.unshift(arr[i + jumpIndex]);
+    jumpIndex += 1;
+  }
+  arr.length = arrLength;
+  return arr;
 }
 
 

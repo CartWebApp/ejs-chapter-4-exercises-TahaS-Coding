@@ -1,9 +1,22 @@
 function arrayToList(arr) {
-  // Add code.
+  let list = {}
+  for (let i = arr.length - 1; i >= 0; i--){
+    if (i === arr.length - 1){
+      list = {value : arr[i], rest : null};
+    }
+    else{
+      list = {value : arr[i], rest : list}
+    }
+  }
+  return list;
 }
 
 function listToArray(list, arr) {
-  // Add code.
+  let endArr = [];
+  for (let loopRest = list; loopRest != null; loopRest = loopRest.rest){
+    endArr.push(loopRest.value);
+  }
+  return endArr;
 }
 
 // tests
