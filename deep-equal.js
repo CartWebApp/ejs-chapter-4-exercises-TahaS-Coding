@@ -1,5 +1,28 @@
 function deepEqual(value, reference) {
-  // Add code.
+  if (typeof value === "object" && typeof reference === "object"){
+    let valueArray = Object.keys(value);
+    let referenceArray = Object.keys(reference);
+    if (valueArray.length == referenceArray.length){
+      for (let i = 0; i < valueArray.length; i++){
+        if (valueArray[i] != referenceArray[i]){
+          return false;
+        }
+        if (value[valueArray[i]] != reference[referenceArray[i]]){
+          if (deepEqual(value[valueArray[i]], reference[referenceArray[i]]) === true){
+            break;
+          }
+          return false;
+        }
+      }
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  else{
+    return value === reference ? true : false;
+  }
 }
 
 

@@ -11,12 +11,30 @@ function arrayToList(arr) {
   return list;
 }
 
-function listToArray(list, arr) {
+function listToArray(list) {
   let endArr = [];
   for (let loopRest = list; loopRest != null; loopRest = loopRest.rest){
     endArr.push(loopRest.value);
   }
   return endArr;
+}
+
+function prepend(element, inputList) {
+  let outputList = {
+    value : element,
+    rest : inputList
+  };
+  return outputList;
+}
+
+function nth(list, number) {
+  let i = 0;
+  for (let loopRest = list; loopRest != null; loopRest = loopRest.rest){
+    if (i === number){
+      return loopRest.value;
+    }
+    i++;
+  }
 }
 
 // tests
